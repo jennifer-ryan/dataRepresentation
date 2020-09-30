@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 
+<catalogues>
+    <technicalbooks>
+        <book isbn-10="9780201616224" isbn-13="978-0201616224">
+            <title>The Pragmatic Programmer</title>
+            <author>Andrew Hunt</author>
+             <author>David Thomas</author>
+            <publisher>Addison-Wesley</publisher>
+        </book>
+        <book isbn-10="1491957662" isbn-13="978-1491957660">
+            <title>Python for Data Analysis</title>
+            <author>Wes McKinney</author>
+            <publisher>O'Reilly</publisher>
+        </book>
+    </technicalbooks>
+
+    <cookerybooks>
+        <book isbn-10="0393081087" isbn-13="978-0393081084">
+            <title>The Food Lab</title>
+            <author>J. Kenji Lopez</author>
+            <publisher>W. W. Norton &#38; Company</publisher>
+        </book>
+        <book isbn-10="9780701189136" isbn-13="978-0701189136">
+            <title>Nigella Express</title>
+            <author>Nigella Lawson</author>
+            <publisher>Chatto &#38; Windus</publisher>
+        </book>
+    </cookerybooks>
+
+</catalogues>
