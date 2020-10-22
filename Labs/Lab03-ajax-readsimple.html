@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                
+	    <title>Read a simple JSON</title>
+    </head>
+<!--Using AJAX to read the JSON from a website-->
+    
+    <body>
+
+        <button onclick="readJSON()">Go</button>
+
+        <button onclick="extraJSON()">Go again</button>
+
+        <div id="output"> </div>
+        
+        <script>
+            
+            function readJSON() {
+                $.ajax({
+                    "url": "https://api.coindesk.com/v1/bpi/currentprice.json",
+                    "method": "GET",
+                    "data": "",
+                    "dataType": "JSON",
+                    "success": function(result){
+                        var erate = result.bpi.EUR.rate;
+                        var urate = result.bpi.USD.rate;
+                        var grate = result.bpi.GBP.rate;
+                        //console.log(rate);
+                        document.getElementById("output").innerText = "EUR: " + erate  + ", USD: " + urate + ", GBP: " + grate;
+                        
+                    },
+                    "error": function(xhr,status,error){
+                        console.log("error: "+status+" msg: "+error);
+                    }
+                });
+
+            }
+
+            function extraJSON() {
+                $.ajax({
+                    "url": "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD,EUR",
+                    "method": "GET",
+                    "data": "",
+                    "dataType": "JSON",
+                    "success": function(result){
+                        console.log(result)
+                        rate = result.USD
+                        document.getElementById("output").innerText = "USD: " + rate;
+                                               
+                    },
+                    "error": function(xhr,status,error){
+                        console.log("error: "+status+" msg: "+error);
+                    }
+                });
+
+            }
+
+        </script>
+    </body>
+
+    
+</html>

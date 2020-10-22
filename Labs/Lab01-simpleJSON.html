@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Print attribute from JSON object</title>
+    </head>
+<!--Convert JSON text to JavaScript object and print author's name to console-->
+    
+    <body>
+
+        <button onclick="printAuthor()">Go</button>
+
+        <script>
+            var json_str = '{"isbn": 1234567, "Author": "Andrew Beatty", "Title": "The Emptiness of Ping Pong Balls"}'
+            
+            var json_obj = JSON.parse(json_str);
+
+            function printAuthor() {
+                console.log(json_obj.Author);
+            }
+
+        </script>
+    </body>
+
+    
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <title>Loop to print attributes from JSON object</title>
+    </head>
+<!--Convert JSON text to JavaScript object print each first name to the console-->
+    
+    <body>
+
+        <button onclick="printNames()">Go</button>
+
+        <script>
+            var json_str = '{"employees": [{"firstName": "John", "lastName": "Doe"}, {"firstName": "Anna", "lastName": "Smith"}, {"firstName": "Peter", "lastName": "Jones"}]}'
+            
+            var json_obj = JSON.parse(json_str);
+
+            function printNames() {
+                for (employee of json_obj.employees){
+                    console.log(employee.firstName);
+                }
+            }
+
+        </script>
+    </body>
+
+    
+</html>
