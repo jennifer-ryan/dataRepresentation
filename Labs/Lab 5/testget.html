@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>
+               Test Get 
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+			table, th, td {
+				border: 1px solid black;
+            }
+		</style>
+
+    </head>
+
+    <body>
+        <button onclick="getAll()">Create Table</button>
+
+        <div id="output"></div>
+
+        <!-- Table of cars-->
+		<div id="table">
+            <h2>Cars</h2>
+                <table id="carTable">
+                    <tr>
+                        <th>Reg</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Price</th>
+                </table>
+            </div>
+
+    
+        <script>
+            function getAll() {
+                $.ajax({
+                    url: "http://127.0.0.1:5000/cars",
+                    method: "GET",
+                    data: "",
+                    dataType: "JSON",
+                    success: function (result){
+                        //console.log(result)
+                        for (car of result.cars){
+                            addCartoTable(car);
+                        }
+                    },
+                    error: function(xhr, status, error){
+                        console.log("error "+status+" msg: "+error);
+                    }
+                })
+            }
+
+            function addCartoTable(car) {
+				//Variable containing the table
+				var tableElement = document.getElementById("carTable")
+				//variable to insert new row to the end of the table
+				var rowElement = tableElement.insertRow(-1)
+				
+				//Add data to each cell in the row
+				var cell1 = rowElement.insertCell(0);
+				cell1.innerHTML = car.reg
+				var cell2 = rowElement.insertCell(1);
+				cell2.innerHTML = car.make
+				var cell3 = rowElement.insertCell(2);
+				cell3.innerHTML = car.model
+				var cell4 = rowElement.insertCell(3);
+				cell4.innerHTML = car.price
+            }
+        </script>
+    
+    </body>
+</html>
